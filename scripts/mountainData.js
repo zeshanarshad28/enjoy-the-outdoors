@@ -525,6 +525,7 @@ const mountainsArray = [
         coords: {
             lat: 43.966565,
             lng: -71.556745
-        }
-    }
-]
+        },
+    },
+];
+

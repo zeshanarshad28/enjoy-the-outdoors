@@ -6858,3 +6858,101 @@ const nationalParksArray = [
     }
     }
 ]
+
+const fiftyStates = document.querySelector("#fiftyStates");
+const parksData = document.querySelector("#parksData")
+
+function locations() {
+    for (let i = 0; i < locationsArray.length; i++){
+        let locations = document.createElement("option")
+        locations.innerText = locationsArray[i]
+        locations.value = locationsArray[i]
+        fiftyStates.appendChild(locations)
+    }
+}
+locations()
+
+function getParkData(){
+    for(let i = 0; i < nationalParksArray.length; i++){
+        let tableRow = parksData.insertRow();
+        let tableData = tableRow.insertCell();
+        tableData.innerText = nationalParksArray[i].LocationName;
+
+        let tableData2 = tableRow.insertCell();
+        tableData2.innerText = nationalParksArray[i].Address;
+
+        let tableData3 = tableRow.insertCell();
+        tableData3.innerText = nationalParksArray[i].City;
+
+        let tableData4 = tableRow.insertCell();
+        tableData4.innerText = nationalParksArray[i].State;
+
+        let tableData5 = tableRow.insertCell();
+        tableData5.innerText = nationalParksArray[i].LocationID;
+    }
+}
+
+getParkData()
+
+function filterByValue(){
+    let parksValue = fiftyStates.value;
+    let parksFilter = nationalParksArray.filter((park)=>park.State === parksValue);
+     parksData.innerHTML = ""
+    for(let i = 0; i < parksFilter.length; i++){
+        let tableRow = parksData.insertRow();
+
+        let tableData = tableRow.insertCell();
+        tableData.innerText = parksFilter[i].LocationName;
+
+        let tableData2 = tableRow.insertCell();
+        tableData2.innerText = parksFilter[i].Address;
+
+        let tableData3 = tableRow.insertCell();
+        tableData3.innerText = parksFilter[i].City;
+
+        let tableData4 = tableRow.insertCell();
+        tableData4.innerText = parksFilter[i].State;
+
+        let tableData5 = tableRow.insertCell();
+        tableData5.innerText = parksFilter[i].LocationID;
+    }
+}
+
+
+const filterByStateRadio = document.getElementById("filterByState");
+const filterByTypeRadio = document.getElementById("filterByType");
+
+function stateFilter() {
+    if(filterByTypeRadio.checked) {
+        fiftyStates.innerHTML = " "
+        for(let i = 0; i < parkTypesArray.length; i++){
+            let locations = document.createElement("option")
+            locations.innerText = parkTypesArray[i]
+            locations.value = parkTypesArray[i]
+            fiftyStates.appendChild(locations)
+        }
+    }else{
+        fiftyStates.innerHTML = " "
+        locations()
+    }
+}
+
+const stateDropdown = document.getElementById("filterByState");
+const parkTypeDropdown = document.getElementById("filterByType");
+
+function filterParks() {
+    const selectedState = stateDropdown.value;
+    const selectedParkType = parkTypeDropdown.value;
+
+    const filteredParks = parksArray.filter(park => {
+        const matchesState = !selectedState || park.state === selectedState;
+        const matchesType = !selectedParkType || park.type === selectedParkType;
+        return matchesState && matchesType;
+    });
+
+    // Function to display filteredParks on the page
+    displayParks(filteredParks);
+}
+
+stateDropdown.addEventListener("change", filterParks);
+parkTypeDropdown.addEventListener("change", filterParks);

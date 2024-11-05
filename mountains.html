@@ -5,10 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mountains</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/sandstone/bootstrap.min.css" integrity="sha384-zEpdAL7W11eTKeoBJK1g79kgl9qjP7g84KfK3AZsuonx38n8ad+f5ZgXtoSDxPOh" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/bootstrap.css" />
+    <link rel="stylesheet" href="styles/customs.css" />
+    <title>Mountains</title>
   </head>
   <body>
+    <h1>Mountains</h1>
+    <header>
+      <a href="">
+        <img src="" alt="">
+      </a>
+      <nav></nav>
+      <a href=""> </a>
+    </header>
+
     <main>
-      <h1>Mountains</h1>
+      <select name="" id="mountains" onchange="filterByName();">
+        <option value="">Select...</option>
+      </select>
+      
+    <section>
+      <div>
+        <input type="radio" name="filter" id="mountainName" onclick="toggleFilter()" />
+        <label for="mountainName">Mountain Name</label>
+    
+        <input type="radio" name="filter" id="stateLocation" onclick="toggleFilter()" />
+        <label for="stateLocation">Effort Types</label>
+    </div>
+    
+    </section>
+
     </main>
     <script src="scripts/mountainData.js"></script>
     <script src="scripts/mountains.js"></script>

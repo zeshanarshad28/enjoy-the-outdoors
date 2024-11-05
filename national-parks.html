@@ -5,15 +5,61 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/sandstone/bootstrap.min.css"
+      integrity="sha384-zEpdAL7W11eTKeoBJK1g79kgl9qjP7g84KfK3AZsuonx38n8ad+f5ZgXtoSDxPOh"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
     <main>
       <h1>National Parks</h1>
+      <select id="fiftyStates" onchange="filterByValue()"></select>
+
+      
+      <div>
+        <label for="filterByState">By State</label>
+        <input type="radio" id="filterByState" onclick="stateFilter()" name="filterOption" />
+        <label for="filterByType">By Type</label>
+        <input type="radio" id="filterByType" onclick="stateFilter()" name="filterOption"  />
+      </div>
+
+      <label for="park-type">Park Type</label>
+<select id="park-type">
+    <option value="">All</option>
+    <option value="National Park">National Park</option>
+    <option value="National Monument">National Monument</option>
+    <option value="Recreation Area">Recreation Area</option>
+    <option value="Scenic Trail ">Scenic Trail </option>
+    <option value="Battlefield"> Battlefield</option>
+    <option value="Historic">Historic </option>
+    <option value="Memorial"> Memorial</option>
+    <option value="Preserve"> Preserve</option>
+    <option value="Island">Island</option>
+    <option value="River">River </option>
+    <option value="Seashore">Seashore </option>
+    <option value="Trail">Trail </option>
+    <option value="Parkway"> Parkway</option>
+
+</select>
+
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+          <th>Name</th>
+          <th>Address</th>
+          <th>City</th>
+          <th>State</th>
+          <th>Location ID</th>
+        </tr>
+        </thead>
+        <tbody id="parksData"></tbody>
+      </table>
     </main>
     <script src="scripts/locationData.js"></script>
     <script src="scripts/parkTypeData.js"></script>
     <script src="scripts/nationalParkData.js"></script>
-
     <script src="scripts/national-parks.js"></script>
   </body>
 </html>

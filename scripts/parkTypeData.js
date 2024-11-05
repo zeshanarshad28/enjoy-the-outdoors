@@ -1,3 +1,5 @@
+window.onload = init;
+
 const parkTypesArray = [
     "National Park",
     "National Monument",
@@ -12,4 +14,5 @@ const parkTypesArray = [
     "Seashore",
     "Trail",
     "Parkway"
-]
+];
+
